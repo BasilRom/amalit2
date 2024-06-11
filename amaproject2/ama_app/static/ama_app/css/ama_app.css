@@ -1,0 +1,40 @@
+h1 {
+    font-style: italic;
+}
+
+header {
+    width: 99%;
+
+    background-color: #edf6f7;
+    padding: 10px;
+    display: flex;
+
+}
+
+li {
+    list-style-type: none;
+    font-style: italic;
+    margin-right: 5px;
+}
+
+.center {
+    width: 70%;
+
+    margin-top: 10px;
+    background-color: #edf6f7;
+    padding: 10px;
+    box-shadow: 3px 3px 7px rgba(20, 20, 20, 05);
+
+
+}
+
+.main_box {
+    display: flex;
+}
+
+
+
+.line {
+
+    margin-left: 5px;
+}

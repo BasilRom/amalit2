@@ -1,0 +1,19 @@
+{% extends 'ama_app/main.html' %}
+
+
+{% block content %}
+
+    <h1>{{catt}}</h1>
+    {% for el in articles %}
+
+        <h2  style="background: #87abf5; padding: 5px; border-radius: 5px; box-shadow: 3px 3px 7px rgba(20, 20, 20, 05);">{{ el.title }}</h2>
+        <h3>Автор: {{ el.author }}</h3>
+        <h3>Регион: {{ el.region }}</h3>
+        <p><img src="{{ el.picture.url }}" width=50% height="auto" border="20px" style="border-radius:20px;"> </p>
+
+        <a href="{{ el.get_absolute_url }}">{{el.get_self_url }}Читать</a>
+        <hr>
+
+    {% endfor %}
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'ama_app/main.html' %}
+
+
+{% block content %}
+    <div style="background: #87edf5; border-radius: 7px; padding: 5px; display: flex;">
+        <h1 >{{ title }} </h1>
+        <p style="padding-top: 15pt; margin-left: 10%;">Время создания: {{ text.time_create }}</p>
+
+    </div>
+
+    <h2>Категория: {{ text.cat }}</h2>
+    <h2>Автор: {{ text.author }}</h2>
+    <p><img src="{{ text.picture.url }}" width=50% height="auto" border="2px" style="border-radius:5px;"> </p>
+    <p style="font-size: 40px; padding-left: 10px; ">{{ text.description  | linebreaks }}</p>
+
+    <a class="back" href="{{request.META.HTTP_REFERER}}">Назад</a>
+
+{% endblock %}

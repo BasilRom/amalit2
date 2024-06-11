@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+     <link rel="stylesheet" href=" {% static 'ama_app/css/ama_app.css' %}">
+</head>
+<body>
+
+    <header>
+
+            <a class="line" style="border-radius: 5%; padding-top: 5px; flex: 1" href="{% url 'home' %}"><img src="{% static 'ama_app/img/book1.ico' %}"
+                                                                                 title="Главная" alt="logo"></a>
+
+
+            <p class="line" ><a href="{% url 'about' %}">О сайте</a></p>
+            <p class="line" ><a href="{% url 'contacts' %}">Контакты</a></p>
+
+
+
+
+    </header>
+
+    <div class="main_box">
+
+        <div>
+            <ul >
+                <h3>Навигация по жанрам</h3>
+                {% for object in cats %}
+
+                        <li><a href="{{ object.get_absolute_url }}">{{ object.cat }}</a></li>
+
+                {% endfor %}
+            </ul>
+
+            <ul>
+                <h3>Навигация по авторам</h3>
+                {% for object in authors %}
+                <li><a href="{{ object.get_absolute_url }}">{{ object.name }}</a></li>
+                {% endfor %}
+            </ul>
+
+            <ul>
+                <h3>Навигация по регионам</h3>
+                {% for object in regions %}
+                <li><a href="{{ object.get_absolute_url }}">{{ object.name }}</a></li>
+                {% endfor %}
+            </ul>
+
+        </div>
+
+        <div class="center">
+            {% block content %}
+            {% endblock %}
+
+
+        </div>
+
+    </div>
+
+
+</body>
+</html>
