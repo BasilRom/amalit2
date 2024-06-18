@@ -1,0 +1,27 @@
+{% extends 'ama_app/main.html' %}
+
+{% block content%}
+    <h1>Ещё не законченные произведения</h1>
+
+<!--    {{ texts }}-->
+    {% for el in texts2 %}
+
+<!--            {{ el.title }} - -->
+<!--            {{ el.cat }}-->
+<!--            <hr>-->
+
+            {% if  el.cat %}
+                    <p>{{ el.title }}</p>
+                <hr>
+
+            {% endif %}
+
+
+
+    {% endfor %}
+
+
+
+
+
+{% endblock %}

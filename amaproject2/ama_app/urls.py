@@ -10,7 +10,8 @@ urlpatterns = [
     path("categs/<int:cat_id>/", views.show_by_category, name='categs'),
     path("authors/<int:name_id>/", views.show_by_author, name='authors'),
     path("regions/<int:name_id>/", views.show_by_region, name='regions'),
-    path("text/<int:text_id>/", views.text, name='text')
+    path("text/<int:text_id>/", views.text, name='text'),
+    path('in_process/', views.wrighting, name='wrighting')
 
 
 ]

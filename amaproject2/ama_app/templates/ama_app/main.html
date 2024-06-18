@@ -9,15 +9,23 @@
 <body>
 
     <header>
-
-            <a class="line" style="border-radius: 5%; padding-top: 5px; flex: 1" href="{% url 'home' %}"><img src="{% static 'ama_app/img/book1.ico' %}"
-                                                                                 title="Главная" alt="logo"></a>
-
-
-            <p class="line" ><a href="{% url 'about' %}">О сайте</a></p>
-            <p class="line" ><a href="{% url 'contacts' %}">Контакты</a></p>
+            <div style="display:flex">
+                <a class="line" style="border-radius: 5%; padding-top: 5px; flex: 1" href="{% url 'home' %}"><img src="{% static 'ama_app/img/book1.ico' %}"
+                                                                                     title="Главная" alt="logo"></a>
 
 
+                <a  class="line" href="{% url 'about' %}">О сайте</a>
+                <a  class="line" href="{% url 'contacts' %}">Контакты</a>
+
+                {% if user.is_authenticated %}
+                    <a class="line" href="{% url 'profile' %}">Профиль: {{user}}</a>
+                    <a class="line" href="{% url 'logout' %}">Выход</a>
+                {% else %}
+                    <a class="line" href="{% url 'login' %}">Вход</a>
+                    <a class="line" href="{% url 'register' %}">Регистрация</a>
+                {% endif %}
+
+            </div>
 
 
     </header>
@@ -48,9 +56,27 @@
                 {% endfor %}
             </ul>
 
+            {% if user.is_authenticated %}
+            <a href="{% url 'wrighting' %}">Произведения, создаваемые в настоящее время</a>
+            {% else %}
+
+            <p>Просмотр произведений, создаваемых прямо сейчас возможен только для зарегистрированных пользователей</p>
+            <a href="{% url 'register' %}">Зарегистрироваться</a>
+
+            {% endif %}
+
         </div>
 
         <div class="center">
+
+            {% if messages %}
+        	{% for message in messages %}
+          	<div class="alert alert-{{ message.tags }}">
+            	{{ message }}
+          	</div>
+        	{% endfor %}
+{% endif %}
+
             {% block content %}
             {% endblock %}
 

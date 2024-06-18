@@ -88,3 +88,12 @@ def text(request, text_id):
 
     }
     return render(request, 'ama_app/self_text.html', context=param_list)
+
+
+def wrighting(request):
+    texts = Text.objects.all()
+    texts2 = Texts.object.filter(cat == 'Сказки')
+
+
+    return render(request, 'ama_app/now_wrighting.html',
+                  {'title': 'В процессе', 'cats': cats, 'authors': auts, 'regions': regions, 'texts2': texts2})
